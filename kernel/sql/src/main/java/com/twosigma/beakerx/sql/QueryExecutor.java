@@ -53,7 +53,6 @@ public class QueryExecutor {
     System.out.println(defaultConnectionString);
     BeakerParser beakerParser = new BeakerParser(script, namespaceClient, defaultConnectionString, namedConnectionString, jdbcClient);
     System.out.println("QueryExecutor.java getting datasource");
-    new Exception().printStackTrace();
     BasicDataSource ds = jdbcClient.getDataSource(beakerParser.getDbURI().getActualConnectionString());
     System.out.println("QueryExecutor.java got datasource");
     Properties info = null;

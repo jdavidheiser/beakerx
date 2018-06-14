@@ -85,7 +85,7 @@ public class SQL extends Kernel {
     System.out.println("SQL.java getting kernel parameters");
     HashMap<String, Object> kernelParameters = new HashMap<>();
     kernelParameters.put(IMPORTS, new DefaultJVMVariables().getImports());
-    kernelParameters.put("%defaultDatasource", "trysettingitbydefault");
+    kernelParameters.put("%defaultDatasource", "jdbc://foobar2");
     // "{%defaultDatasource=jdbc:trysettingitbydefault}"
     return new EvaluatorParameters(kernelParameters);
   }
