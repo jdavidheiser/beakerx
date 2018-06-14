@@ -76,7 +76,7 @@ public class SQL extends Kernel {
       EvaluatorParameters kernel_params =  getKernelParameters()
       System.out.println(kernel_params);
       SQLEvaluator evaluator = new SQLEvaluator(id, id, kernel_params);
-      SQLEvaluator.setShellOptions(kernel_params)l
+      SQLEvaluator.setShellOptions(kernel_params);
       return new SQL(id, evaluator, kernelSocketsFactory);
     });
   }
