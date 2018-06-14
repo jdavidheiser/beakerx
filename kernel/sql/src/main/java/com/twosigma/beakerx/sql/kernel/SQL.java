@@ -73,7 +73,10 @@ public class SQL extends Kernel {
       String id = uuid();
       KernelSocketsFactoryImpl kernelSocketsFactory = new KernelSocketsFactoryImpl(
               new KernelConfigurationFile(args));
-      SQLEvaluator evaluator = new SQLEvaluator(id, id, getKernelParameters());
+      EvaluatorParameters kernel_params =  getKernelParameters()
+      System.out.println(kernel_params);
+      SQLEvaluator evaluator = new SQLEvaluator(id, id, kernel_params);
+      SQLEvaluator.setShellOptions(kernel_params)l
       return new SQL(id, evaluator, kernelSocketsFactory);
     });
   }
