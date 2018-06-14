@@ -69,6 +69,7 @@ public class SQL extends Kernel {
 
   public static void main(final String[] args) throws InterruptedException, IOException {
     KernelRunner.run(() -> {
+      System.out.println("SQL.java running");
       String id = uuid();
       KernelSocketsFactoryImpl kernelSocketsFactory = new KernelSocketsFactoryImpl(
               new KernelConfigurationFile(args));
@@ -78,8 +79,11 @@ public class SQL extends Kernel {
   }
 
   private static EvaluatorParameters getKernelParameters() {
+    System.out.println("SQL.java getting kernel parameters");
     HashMap<String, Object> kernelParameters = new HashMap<>();
     kernelParameters.put(IMPORTS, new DefaultJVMVariables().getImports());
+    kernelParameters.put("%defaultDatasource", "trysettingitbydefault");
+    // "{%defaultDatasource=jdbc:trysettingitbydefault}"
     return new EvaluatorParameters(kernelParameters);
   }
 

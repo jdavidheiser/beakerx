@@ -49,7 +49,7 @@ public class QueryExecutor {
 
   public synchronized Object executeQuery(String script, NamespaceClient namespaceClient, ConnectionStringHolder defaultConnectionString, Map<String, ConnectionStringHolder> namedConnectionString)
       throws SQLException, IOException, ReadVariableException {
-    System.out.println("SqlCodeRunner.java TryResult called");
+    System.out.println("QueryExecutor.java TryResult called");
     System.out.println(defaultConnectionString);
     BeakerParser beakerParser = new BeakerParser(script, namespaceClient, defaultConnectionString, namedConnectionString, jdbcClient);
     System.out.println("QueryExecutor.java getting datasource");
