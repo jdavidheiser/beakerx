@@ -51,7 +51,6 @@ public class QueryExecutor {
       throws SQLException, IOException, ReadVariableException {
     System.out.println("SqlCodeRunner.java TryResult called");
     System.out.println(defaultConnectionString);
-    System.out.println(defaultConnectionString.getConnectionString());
     BeakerParser beakerParser = new BeakerParser(script, namespaceClient, defaultConnectionString, namedConnectionString, jdbcClient);
     System.out.println("QueryExecutor.java getting datasource");
     new Exception().printStackTrace();
