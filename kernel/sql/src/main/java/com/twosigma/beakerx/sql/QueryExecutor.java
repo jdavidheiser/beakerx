@@ -49,11 +49,12 @@ public class QueryExecutor {
 
   public synchronized Object executeQuery(String script, NamespaceClient namespaceClient, ConnectionStringHolder defaultConnectionString, Map<String, ConnectionStringHolder> namedConnectionString)
       throws SQLException, IOException, ReadVariableException {
+    System.out.println("SqlCodeRunner.java TryResult called");
 
     BeakerParser beakerParser = new BeakerParser(script, namespaceClient, defaultConnectionString, namedConnectionString, jdbcClient);
-
+    System.out.println("QueryExecutor.java getting datasource");
     BasicDataSource ds = jdbcClient.getDataSource(beakerParser.getDbURI().getActualConnectionString());
-
+    System.out.println("QueryExecutor.java got datasource");
     Properties info = null;
     if (beakerParser.getDbURI().getUser() != null && !beakerParser.getDbURI().getUser().isEmpty()) {
       if(info == null){
@@ -67,7 +68,7 @@ public class QueryExecutor {
       }
       info.put("password", beakerParser.getDbURI().getPassword());
     }
-    
+
     boolean isConnectionExeption = true;
 
     // Workaround for "h2database" : do not work correctly with empty or null "Properties"
