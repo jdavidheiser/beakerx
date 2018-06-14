@@ -41,6 +41,12 @@ public class DefaultDataSourcesMagicCommand extends DataSourcesMagicCommand {
 
   @Override
   public MagicCommandOutcomeItem execute(MagicCommandExecutionParam param) {
+    System.out.println("Magic Command Called");
+    System.out.println(param);
+    System.out.println(param.getCommand());
+    System.out.println(DEFAULT_DATASOURCE);
+    System.out.println("*******");
+
     return dataSource(DEFAULT_DATASOURCE, param.getCommand());
   }
 }
