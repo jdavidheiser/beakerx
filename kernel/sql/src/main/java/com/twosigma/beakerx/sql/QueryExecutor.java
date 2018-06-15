@@ -67,7 +67,7 @@ public class QueryExecutor {
       }
       info.put("password", beakerParser.getDbURI().getPassword());
     }
-
+    
     boolean isConnectionExeption = true;
 
     // Workaround for "h2database" : do not work correctly with empty or null "Properties"
