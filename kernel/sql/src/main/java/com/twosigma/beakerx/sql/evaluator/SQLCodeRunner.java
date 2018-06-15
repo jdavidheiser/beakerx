@@ -29,6 +29,7 @@ import java.util.concurrent.Callable;
 import static com.twosigma.beakerx.evaluator.BaseEvaluator.INTERUPTED_MSG;
 
 class SQLCodeRunner implements Callable<TryResult> {
+
   private final static Logger logger = LoggerFactory.getLogger(SQLCodeRunner.class.getName());
 
   private SQLEvaluator sqlEvaluator;
@@ -44,7 +45,6 @@ class SQLCodeRunner implements Callable<TryResult> {
   @Override
   public TryResult call() throws Exception {
     TryResult either;
-    System.out.println("SqlCodeRunner.java TryResult called");
     try {
       Object r = sqlEvaluator.executeQuery(simpleEvaluationObject.getExpression(), namespaceClient, sqlEvaluator.defaultConnectionString, sqlEvaluator.namedConnectionString);
       either = TryResult.createResult(r);

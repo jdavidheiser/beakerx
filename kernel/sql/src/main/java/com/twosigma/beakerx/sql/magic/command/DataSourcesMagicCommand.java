@@ -62,16 +62,6 @@ public class DataSourcesMagicCommand implements MagicCommandFunctionality {
     HashMap<String, Object> params = new HashMap<>();
     params.put(source, parts[1]);
     this.kernel.setShellOptions(new EvaluatorParameters(params));
-
-    System.out.println("magic command dataSource method called");
-    System.out.println(params);
-    System.out.println(source);
-    System.out.println(parts[1]);
-    System.out.println(parts);
-
-
-
-
     return new MagicCommandOutput(MagicCommandOutcomeItem.Status.OK);
 
   }

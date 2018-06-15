@@ -94,7 +94,7 @@ public class SQL extends Kernel {
     kernelParameters.put(IMPORTS, new DefaultJVMVariables().getImports());
     String uri = getDefaultConnectionString();
     if (uri != null) {
-      logger.info("Setting default connection string to " + uri)
+      logger.info("Setting default connection string to " + uri);
       kernelParameters.put("%defaultDatasource", uri);
     }
     // "{%defaultDatasource=jdbc:trysettingitbydefault}"
@@ -107,9 +107,9 @@ public class SQL extends Kernel {
     if (uri != null && uri.contains("jdbc:")) {
       return uri;
     }
-    else if uri != null
+    else if (uri != null)
     {
-      logger.warning("Ignoring incorrectly formatted BEAKER_JDBC_DEFAULT_CONNECTION" + uri)
+      logger.warning("Ignoring incorrectly formatted BEAKER_JDBC_DEFAULT_CONNECTION" + uri);
       return null;
     }
 

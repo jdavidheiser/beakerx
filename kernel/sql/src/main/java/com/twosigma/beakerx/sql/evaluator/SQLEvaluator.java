@@ -157,7 +157,6 @@ public class SQLEvaluator extends BaseEvaluator {
   }
 
   protected void configureSqlEvaluator(EvaluatorParameters kernelParameters) {
-    System.out.println("configureSqlEvaluator called");
     SQLKernelParameters params = new SQLKernelParameters(kernelParameters);
     Optional<Collection<String>> cp = params.getClassPath();
 

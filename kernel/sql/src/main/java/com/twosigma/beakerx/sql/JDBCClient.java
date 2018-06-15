@@ -50,8 +50,7 @@ public class JDBCClient {
   public BasicDataSource getDataSource(String uri) throws DBConnectionException {
     synchronized (this) {
       try {
-        System.out.println(">>>>> getDataSource called");
-        System.out.println(uri);
+
         BasicDataSource ds = dsMap.get(uri);
         if (ds == null) {
           Driver driver = null;
