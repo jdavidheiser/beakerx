@@ -67,16 +67,20 @@ public class SQL extends Kernel {
     return new SQLKernelInfoHandler(kernel);
   }
 
+
+
+
   public static void main(final String[] args) throws InterruptedException, IOException {
     KernelRunner.run(() -> {
       System.out.println("SQL.java running");
       String id = uuid();
       KernelSocketsFactoryImpl kernelSocketsFactory = new KernelSocketsFactoryImpl(
               new KernelConfigurationFile(args));
-      EvaluatorParameters kernel_params =  getKernelParameters();
-      System.out.println(kernel_params);
-      SQLEvaluator evaluator = new SQLEvaluator(id, id, kernel_params);
-      evaluator.setShellOptions(kernel_params);
+      EvaluatorParameters params = getKernelParameters();
+      // xcxc
+      System.out.println(params);
+      SQLEvaluator evaluator = new SQLEvaluator(id, id, params);
+      evaluator.setShellOptions(params);
       return new SQL(id, evaluator, kernelSocketsFactory);
     });
   }
@@ -85,10 +89,27 @@ public class SQL extends Kernel {
     System.out.println("SQL.java getting kernel parameters");
     HashMap<String, Object> kernelParameters = new HashMap<>();
     kernelParameters.put(IMPORTS, new DefaultJVMVariables().getImports());
-    kernelParameters.put("%defaultDatasource", "jdbc://foobar2");
+    String uri = getDefaultConnectionString();
+    if (uri != null) {
+      kernelParameters.put("%defaultDatasource", uri);
+    }
     // "{%defaultDatasource=jdbc:trysettingitbydefault}"
     return new EvaluatorParameters(kernelParameters);
   }
+
+  private String setDefaultConnectionString() {
+    String uri = System.getenv("BEAKER_JDBC_DEFAULT_CONNECTION");
+
+    if (uri != null && uri.contains("jdbc:")) {
+      return uri;
+    }
+    else
+    {
+      return null;
+    }
+
+  }
+
 
   static class SQLCustomMagicCommandsImpl implements CustomMagicCommandsFactory {
     @Override
