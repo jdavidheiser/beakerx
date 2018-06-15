@@ -112,6 +112,10 @@ public class SQL extends Kernel {
       logger.warning("Ignoring incorrectly formatted BEAKER_JDBC_DEFAULT_CONNECTION" + uri);
       return null;
     }
+    else
+    {
+      return null;
+    }
 
   }
 
