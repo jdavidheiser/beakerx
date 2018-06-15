@@ -97,7 +97,7 @@ public class SQL extends Kernel {
     return new EvaluatorParameters(kernelParameters);
   }
 
-  private String getDefaultConnectionString() {
+  private static String getDefaultConnectionString() {
     String uri = System.getenv("BEAKER_JDBC_DEFAULT_CONNECTION");
 
     if (uri != null && uri.contains("jdbc:")) {
